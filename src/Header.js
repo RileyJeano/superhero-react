@@ -3,9 +3,11 @@ import React from 'react'
 const Header = ({changeLocation}) => {
 	return (
 		<header>
-      <h1>Superhero Creator</h1>
+      <h1>Create Superhero</h1>
       <nav>
         <ul>
+          <li onClick={() => changeLocation('home')}>Create Hero</li>
+          <li onClick={() => changeLocation('heroes')}>Saved Heroes</li>
         </ul>
       </nav>
     </header>
