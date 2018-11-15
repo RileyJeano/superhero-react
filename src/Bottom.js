@@ -9,11 +9,11 @@ class Bottom extends Component {
 		}
 	}
 
-	getBottom = (id) => {
-		api(`http://localhost:8080/api/bottoms/${id}`).then(bottom => {
-			const newBottoms = this.state.bottoms
-			newBottoms.push(bottom)
-			this.setState({bottoms: newBottoms})
+	getBottom = (bottomNumber) => {
+		api(`http://localhost:8080/api/bottoms/${bottomNumber}`).then(bottom => {
+			const newBottom = this.state.bottoms
+			newBottom.push(bottom)
+			this.setState({bottoms: newBottom})
 		})
 	}
 
@@ -26,17 +26,29 @@ class Bottom extends Component {
 	}
 
 	componentDidMount() {
-		this.getBottoms()
+		this.getBottom()
+	}
+
+		changeImageForwards = () =>{
+		const add = 1
+		this.getBottom(this.bottomNumber + add)
+	}
+
+		changeImageBackwards = () =>{
+		const add = 1
+		this.getBottom(this.bottomNumber - add)
 	}
 
 	render() {
 		return (<section>
+			<button onClick={this.changeImageBackwards}>  &#8672; </button>
 				{this.state.bottoms.map((bottom, index) => 
 					<section key={index}>
-						<h2>{bottom.bottom}</h2>
+						<img src="{bottom.bottom}"/>
 					
 					</section>
 				)}
+			<button onClick={this.changeImageForwards}> &#8674; </button>
 			</section>
 		)
 	}

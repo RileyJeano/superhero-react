@@ -9,11 +9,11 @@ class Hair extends Component {
 		}
 	}
 
-	getHair = (id) => {
-		api(`http://localhost:8080/api/hairs/${id}`).then(hair => {
-			const newHairs = this.state.hairs
-			newHairs.push(hair)
-			this.setState({hairs: newHairs})
+	getHair = (hairNumber) => {
+		api(`http://localhost:8080/api/hairs/${hairNumber}`).then(hair => {
+			const newHair = this.state.hairs
+			newHair.push(hair)
+			this.setState({hairs: newHair})
 		})
 	}
 
@@ -26,17 +26,30 @@ class Hair extends Component {
 	}
 
 	componentDidMount() {
-		this.getHairs()
+		this.getHair()
+	}
+
+		changeImageForwards = () =>{
+		const add = 1
+		this.getHair(this.hairNumber + add)
+	}
+
+		changeImageBackwards = () =>{
+		const add = 1
+		this.getHair(this.hairNumber - add)
 	}
 
 	render() {
 		return (<section>
+			<button onClick={this.changeImageBackwards}>  &#8672; </button>
 				{this.state.hairs.map((hair, index) => 
 					<section key={index}>
-						<h2>{hair.hairStyle}</h2>
+						<img src="{hair.hairStyle}"/>
 					
 					</section>
 				)}
+			<button onClick={this.changeImageForwards}> &#8674; </button>
+
 			</section>
 		)
 	}

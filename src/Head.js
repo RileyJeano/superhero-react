@@ -9,11 +9,11 @@ class Head extends Component {
 		}
 	}
 
-	getHead = (id) => {
-		api(`http://localhost:8080/api/heads/${id}`).then(head => {
-			const newHeads = this.state.heads
-			newHeads.push(head)
-			this.setState({heads: newHeads})
+	getHead = (headNumber) => {
+		api(`http://localhost:8080/api/heads/${headNumber}`).then(head => {
+			const newHead = this.state.heads
+			newHead.push(head)
+			this.setState({heads: newHead})
 		})
 	}
 
@@ -29,14 +29,28 @@ class Head extends Component {
 		this.getHeads()
 	}
 
+		changeImageForwards = () =>{
+		console.log("forward Head")
+		const add = 1
+		this.getHead(this.headNumber + add)
+	}
+
+		changeImageBackwards = () =>{
+		const add = 1
+		console.log("backward Head")
+		this.getHead(this.headNumber - add)
+	}
+
 	render() {
 		return (<section>
+				<button onClick={this.changeImageBackwards}>  &#8672; </button>
+				
 				{this.state.heads.map((head, index) => 
 					<section key={index}>
-						<h2>{head.head}</h2>
-					
+						<img src="{head.head}"/>
 					</section>
 				)}
+				<button onClick={this.changeImageForwards}> &#8674; </button>
 			</section>
 		)
 	}

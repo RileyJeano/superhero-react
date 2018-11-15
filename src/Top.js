@@ -9,11 +9,11 @@ class Top extends Component {
 		}
 	}
 
-	getTop = (id) => {
-		api(`http://localhost:8080/api/tops/${id}`).then(top => {
-			const newTops = this.state.tops
-			newTops.push(top)
-			this.setState({tops: newTops})
+	getTop = (topNumber) => {
+		api(`http://localhost:8080/api/tops/${topNumber}`).then(top => {
+			const newTop = this.state.tops
+			newTop.push(top)
+			this.setState({tops: newTop})
 		})
 	}
 
@@ -26,17 +26,29 @@ class Top extends Component {
 	}
 
 	componentDidMount() {
-		this.getTops()
+		this.getTop()
+	}
+
+	changeImageForwards = () =>{
+		const add = 1
+		this.getTop(this.topNumber + add)
+	}
+
+		changeImageBackwards = () =>{
+		const add = 1
+		this.getTop(this.topNumber - add)
 	}
 
 	render() {
 		return (<section>
+			<button onClick={this.changeImageBackwards}>  &#8672; </button>
 				{this.state.tops.map((top, index) => 
 					<section key={index}>
-						<h2>{top.top}</h2>
+						<img src="{top.top}"/>
 					
 					</section>
 				)}
+				<button onClick={this.changeImageForwards}> &#8674; </button>
 			</section>
 		)
 	}
