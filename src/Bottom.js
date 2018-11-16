@@ -26,29 +26,21 @@ class Bottom extends Component {
 	}
 
 	componentDidMount() {
-		this.getBottom()
+		this.getBottoms()
 	}
 
-		changeImageForwards = () =>{
-		const add = 1
-		this.getBottom(this.bottomNumber + add)
-	}
 
-		changeImageBackwards = () =>{
-		const add = 1
-		this.getBottom(this.bottomNumber - add)
-	}
 
 	render() {
 		return (<section>
-			<button onClick={this.changeImageBackwards}>  &#8672; </button>
-				{this.state.bottoms.map((bottom, index) => 
-					<section key={index}>
+			
+				{this.state.bottoms.map((bottom, index) => {
+					return <section key={index}>
 						<img src="{bottom.bottom}"/>
 					
 					</section>
-				)}
-			<button onClick={this.changeImageForwards}> &#8674; </button>
+				})}
+	
 			</section>
 		)
 	}

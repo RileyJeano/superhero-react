@@ -26,29 +26,20 @@ class Top extends Component {
 	}
 
 	componentDidMount() {
-		this.getTop()
+		this.getTops()
 	}
 
-	changeImageForwards = () =>{
-		const add = 1
-		this.getTop(this.topNumber + add)
-	}
-
-		changeImageBackwards = () =>{
-		const add = 1
-		this.getTop(this.topNumber - add)
-	}
 
 	render() {
 		return (<section>
-			<button onClick={this.changeImageBackwards}>  &#8672; </button>
-				{this.state.tops.map((top, index) => 
-					<section key={index}>
+
+				{this.state.tops.map((top, index) => {
+					return <section key={index}>
 						<img src="{top.top}"/>
 					
 					</section>
-				)}
-				<button onClick={this.changeImageForwards}> &#8674; </button>
+				})}
+			
 			</section>
 		)
 	}

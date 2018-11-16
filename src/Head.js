@@ -29,28 +29,14 @@ class Head extends Component {
 		this.getHeads()
 	}
 
-		changeImageForwards = () =>{
-		console.log("forward Head")
-		const add = 1
-		this.getHead(this.headNumber + add)
-	}
-
-		changeImageBackwards = () =>{
-		const add = 1
-		console.log("backward Head")
-		this.getHead(this.headNumber - add)
-	}
-
 	render() {
 		return (<section>
-				<button onClick={this.changeImageBackwards}>  &#8672; </button>
 				
-				{this.state.heads.map((head, index) => 
-					<section key={index}>
+				{this.state.heads.map((head, index) => {
+					return (<section key={index}>
 						<img src="{head.head}"/>
-					</section>
-				)}
-				<button onClick={this.changeImageForwards}> &#8674; </button>
+					</section>)
+				})}
 			</section>
 		)
 	}

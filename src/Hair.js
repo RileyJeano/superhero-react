@@ -26,29 +26,19 @@ class Hair extends Component {
 	}
 
 	componentDidMount() {
-		this.getHair()
+		this.getHairs()
 	}
 
-		changeImageForwards = () =>{
-		const add = 1
-		this.getHair(this.hairNumber + add)
-	}
-
-		changeImageBackwards = () =>{
-		const add = 1
-		this.getHair(this.hairNumber - add)
-	}
 
 	render() {
 		return (<section>
-			<button onClick={this.changeImageBackwards}>  &#8672; </button>
-				{this.state.hairs.map((hair, index) => 
-					<section key={index}>
-						<img src="{hair.hairStyle}"/>
+				{this.state.hairs.map((hair, index) => {
+					return	<section key={index}>
+					<img src="{hair.hairStyle}"/>
 					
 					</section>
-				)}
-			<button onClick={this.changeImageForwards}> &#8674; </button>
+				})}
+
 
 			</section>
 		)
