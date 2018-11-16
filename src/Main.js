@@ -1,17 +1,25 @@
 import React from 'react'
 
-import Head from './Head'
-import Hair from './Hair'
-import Top from './Top'
-import Bottom from './Bottom'
+import Heads from './Heads'
+import Hairs from './Hairs'
+import Tops from './Tops'
+import Bottoms from './Bottoms'
+import Hero from './Hero'
+import './Main.css'
+
 
 const Main = () => {
 	return (
 		<main>
-            <Head />
-            <Hair />
-            <Top />
-            <Bottom />
+			<div className="heroImage">
+				<Hero />
+			</div>
+			<div className="selectionImages">
+            	<Heads />
+           		<Hairs />
+            	<Tops />
+            	<Bottoms />
+            </div>
         </main>
 	)
 }

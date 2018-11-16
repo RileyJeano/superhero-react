@@ -3,7 +3,7 @@ import './Header.css'
 
 const Header = ({changeLocation}) => {
 	return (
-		<header>
+		<header className="header">
       <h1>Create Superhero</h1>
       <nav>
         <ul>

@@ -1,0 +1,11 @@
+main{
+	background-color: pink;
+	display: grid;
+  	grid-template-columns: 60fr 40fr
+}
+.selectionImages{
+	background-color: red;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr;
+}

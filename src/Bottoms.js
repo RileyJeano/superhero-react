@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import api from './api'
 
-class Bottoms extends Component {
+class Bottom extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -46,4 +46,5 @@ class Bottoms extends Component {
 	}
 }
 
-export default Bottoms
+export default Bottom
+

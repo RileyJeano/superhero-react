@@ -1,6 +1,3 @@
-ul{
-	text-decoration: none;
-}
-h1{
-	backgorund-color: pink;
+li{
+	list-style: none;
 }

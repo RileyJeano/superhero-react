@@ -9,24 +9,23 @@ class Head extends Component {
 		}
 	}
 
-	getHead = (headNumber) => {
-		api(`http://localhost:8080/api/heads/${headNumber}`).then(head => {
+	getHead = (id) => {
+		api(`http://localhost:8080/api/heads/${id}`).then(head => {
 			const newHead = this.state.heads
 			newHead.push(head)
 			this.setState({heads: newHead})
 		})
 	}
 
-	getHeads = () => {
-		api(`http://localhost:8080/api/heads`).then(heads => {
-			const newHeads = this.state.heads
-			heads.forEach(head => newHeads.push(head))
-			this.setState({heads: newHeads})
-		})
-	}
+
+  changeImage = (image) => {
+    this.setState({image})
+  }
+
 
 	componentDidMount() {
-		this.getHeads()
+		//should it be this.image or this.changeImage
+		this.getHead(this.changeImage)
 	}
 
 	render() {
@@ -34,7 +33,7 @@ class Head extends Component {
 				
 				{this.state.heads.map((head, index) => {
 					return (<section key={index}>
-						<img src="{head.head}"/>
+						<img src={"http://localhost:8080/image" + head.head} width="500" height="500"/>
 					</section>)
 				})}
 			</section>
@@ -43,3 +42,40 @@ class Head extends Component {
 }
 
 export default Head
+
+
+
+class App extends Component {
+    constructor() {
+    super()
+    this.state = {
+      isMain: true,
+      location: ''
+    }
+  }
+    toggleIsMain = () => {
+    this.setState({isMain: !this.state.isMain})
+  }
+
+  changeLocation = (location) => {
+    this.setState({location})
+  }
+
+  render() {
+    return (
+      <div className="App">
+      <Header changeLocation={this.changeLocation} />
+         <Container>
+          {this.state.location === 'home'
+   
+  }       ? <Main />
+          : this.state.location === 'hero'
+          ? <Heroes />
+          : <h2>This works now?</h2>}
+        </Container>
+      <Footer />
+      </div>
+    );
+}
+
+export default App;
