@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import api from './api'
 
-class Bottoms extends Component {
+class Bottom extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -26,7 +26,7 @@ class Bottoms extends Component {
 	}
 
 	componentDidMount() {
-		this.getBottoms()
+		this.getBottom()
 	}
 
 
@@ -36,7 +36,7 @@ class Bottoms extends Component {
 			
 				{this.state.bottoms.map((bottom, index) => {
 					return <section key={index}>
-						<img src={"http://localhost:8080/image" + bottom.bottom}width="150" height="150"/>
+						<img src={"http://localhost:8080/image" + bottom.bottom}width="500" height="500"/>
 					
 					</section>
 				})}
@@ -46,4 +46,4 @@ class Bottoms extends Component {
 	}
 }
 
-export default Bottoms
+export default Bottom

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import api from './api'
 
-class Hairs extends Component {
+class Hair extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -26,7 +26,7 @@ class Hairs extends Component {
 	}
 
 	componentDidMount() {
-		this.getHairs()
+		this.getHair()
 	}
 
 
@@ -34,7 +34,7 @@ class Hairs extends Component {
 		return (<section>
 				{this.state.hairs.map((hair, index) => {
 					return	<section key={index}>
-						<img src={"http://localhost:8080/image" + hair.hairStyle} width="150" height="150"/>
+						<img src={"http://localhost:8080/image" + hair.hairStyle}width="500" height="500"/>
 					
 					</section>
 				})}
@@ -45,5 +45,5 @@ class Hairs extends Component {
 	}
 }
 
-export default Hairs
+export default Hair
 

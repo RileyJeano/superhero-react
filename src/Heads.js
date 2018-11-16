@@ -3,14 +3,15 @@ import api from './api'
 
 class Heads extends Component {
 	constructor(props) {
+
 		super(props)
 		this.state = {
 			heads: []
 		}
 	}
 
-	getHead = (headNumber) => {
-		api(`http://localhost:8080/api/heads/${headNumber}`).then(head => {
+	getHead = (id) => {
+		api(`http://localhost:8080/api/heads/${id}`).then(head => {
 			const newHead = this.state.heads
 			newHead.push(head)
 			this.setState({heads: newHead})
@@ -34,7 +35,7 @@ class Heads extends Component {
 				
 				{this.state.heads.map((head, index) => {
 					return (<section key={index}>
-						<img src={"http://localhost:8080/image" + head.head} width="150" height="150"/>
+						<img src={"http://localhost:8080/image" + head.head} width="150" height="150" onClick={() => this.props.changeHeadImage(head.headId)}/>
 					</section>)
 				})}
 			</section>
@@ -43,4 +44,3 @@ class Heads extends Component {
 }
 
 export default Heads
-

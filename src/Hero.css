@@ -1,0 +1,17 @@
+/*.head {
+position:absolute;  
+z-index:auto;  
+background-color: yellow;
+}
+.hair {
+position:absolute;  
+z-index:1;  
+left:125px;  
+top:125px;  
+}
+.top {
+position:absolute;  
+z-index:2;  
+left:250px;  
+top:250px;  
+}*/

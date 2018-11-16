@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import api from './api'
 
-class Tops extends Component {
+class Top extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -26,7 +26,7 @@ class Tops extends Component {
 	}
 
 	componentDidMount() {
-		this.getTops()
+		this.getTop()
 	}
 
 
@@ -35,7 +35,7 @@ class Tops extends Component {
 
 				{this.state.tops.map((top, index) => {
 					return <section key={index}>
-						<img src={"http://localhost:8080/image" + top.top} width="150" height="150"/>
+						<img src={"http://localhost:8080/image" + top.top} width="500" height="500"/>
 					
 					</section>
 				})}
@@ -45,4 +45,4 @@ class Tops extends Component {
 	}
 }
 
-export default Tops
+export default Top
