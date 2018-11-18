@@ -15,7 +15,7 @@ class Main extends Component {
   constructor(){
     super()
     this.state = {
-      headId: 5
+      headImage: "/head1.png"
     }
   }
 
@@ -24,7 +24,7 @@ render() {
 	return (
 		<main>
 			<div className="heroImage">
-				<Head className="head" headId={this.state.headId} />
+				<Head className="head" headImage={this.state.headImage} />
 				<Hair className="hair" />
 				<Top className="top" />
 				<Bottom className="bottom" />
@@ -40,8 +40,8 @@ render() {
 	)
 }
 
-changeHeadImage=(headId)=>{
-this.setState({headId})
+changeHeadImage=(headImage)=>{
+this.setState({headImage:[headImage]})
 }
 }
 export default Main

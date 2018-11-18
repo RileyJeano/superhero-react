@@ -10,14 +10,6 @@ class Heads extends Component {
 		}
 	}
 
-	getHead = (id) => {
-		api(`http://localhost:8080/api/heads/${id}`).then(head => {
-			const newHead = this.state.heads
-			newHead.push(head)
-			this.setState({heads: newHead})
-		})
-	}
-
 	getHeads = () => {
 		api(`http://localhost:8080/api/heads`).then(heads => {
 			const newHeads = this.state.heads
@@ -35,7 +27,7 @@ class Heads extends Component {
 				
 				{this.state.heads.map((head, index) => {
 					return (<section key={index}>
-						<img src={"http://localhost:8080/image" + head.head} width="150" height="150" onClick={() => this.props.changeHeadImage(head.headId)}/>
+						<img src={"http://localhost:8080/image" + head.head} width="150" height="150" onClick={() => this.props.changeHeadImage(head.head)}/>
 					</section>)
 				})}
 			</section>
