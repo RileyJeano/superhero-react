@@ -9,13 +9,6 @@ class Bottom extends Component {
 		}
 	}
 
-	getBottom = (bottomNumber) => {
-		api(`http://localhost:8080/api/bottoms/${bottomNumber}`).then(bottom => {
-			const newBottom = this.state.bottoms
-			newBottom.push(bottom)
-			this.setState({bottoms: newBottom})
-		})
-	}
 
 	getBottoms = () => {
 		api(`http://localhost:8080/api/bottoms`).then(bottoms => {
@@ -36,7 +29,7 @@ class Bottom extends Component {
 			
 				{this.state.bottoms.map((bottom, index) => {
 					return <section key={index}>
-						<img src={"http://localhost:8080/image" + bottom.bottom}width="150" height="150"/>
+						<img src={"http://localhost:8080/image" + bottom.bottom}width="150" height="150" onClick={() => this.props.changeBottomImage(bottom.bottom)}/>
 					
 					</section>
 				})}

@@ -9,14 +9,6 @@ class Hairs extends Component {
 		}
 	}
 
-	getHair = (hairNumber) => {
-		api(`http://localhost:8080/api/hairs/${hairNumber}`).then(hair => {
-			const newHair = this.state.hairs
-			newHair.push(hair)
-			this.setState({hairs: newHair})
-		})
-	}
-
 	getHairs = () => {
 		api(`http://localhost:8080/api/hairs`).then(hairs => {
 			const newHairs = this.state.hairs
@@ -29,12 +21,11 @@ class Hairs extends Component {
 		this.getHairs()
 	}
 
-
 	render() {
 		return (<section>
 				{this.state.hairs.map((hair, index) => {
 					return	<section key={index}>
-						<img src={"http://localhost:8080/image" + hair.hairStyle} width="150" height="150"/>
+						<img src={"http://localhost:8080/image" + hair.hairStyle} width="150" height="150" onClick={() => this.props.changeHairImage(hair.hairStyle)}/>
 					
 					</section>
 				})}

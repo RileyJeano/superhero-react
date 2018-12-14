@@ -6,6 +6,14 @@ main{
 .selectionImages{
 	background-color: red;
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 1fr 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr 1fr;
+margin: 5;
+background: green;
+}
+
+.heroImage img {
+  position: absolute;
+  top: 150px;
+  left: 150px;
 }

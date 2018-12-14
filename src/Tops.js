@@ -9,14 +9,6 @@ class Top extends Component {
 		}
 	}
 
-	getTop = (topNumber) => {
-		api(`http://localhost:8080/api/tops/${topNumber}`).then(top => {
-			const newTop = this.state.tops
-			newTop.push(top)
-			this.setState({tops: newTop})
-		})
-	}
-
 	getTops = () => {
 		api(`http://localhost:8080/api/tops`).then(tops => {
 			const newTops = this.state.tops
@@ -29,13 +21,11 @@ class Top extends Component {
 		this.getTops()
 	}
 
-
 	render() {
 		return (<section>
-
 				{this.state.tops.map((top, index) => {
 					return <section key={index}>
-						<img src={"http://localhost:8080/image" + top.top} width="150" height="150"/>
+						<img src={"http://localhost:8080/image" + top.top} width="150" height="150" onClick={() => this.props.changeTopImage(top.top)}/>
 					
 					</section>
 				})}
